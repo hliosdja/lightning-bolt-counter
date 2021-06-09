@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
 
 function App() {
+  let [lightningCount, setLightningCount] = useState(0);
+  const lightningIncrement = () => {
+      setLightningCount(lightningCount + 100)
+  }
+  setTimeout(()=> {
+    lightningIncrement()
+  }, 1000);
+
+  console.log(lightningCount)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>Lightning Facts!</h2>
+      <p>About 100 lightning bolts strike the Earth's surface every second.</p>
+      <p>As of this counter started, there are {lightningCount} lightning bolts that striked the Earth.</p>
+      <button onClick={lightningIncrement}>Count</button>
     </div>
   );
 }
