@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import './styles/main.css';
 
 function App() {
   let [lightningCount, setLightningCount] = useState(0);
@@ -8,14 +9,14 @@ function App() {
   setTimeout(()=> {
     lightningIncrement()
   }, 1000);
-
-  console.log(lightningCount)
   return (
-    <div>
-      <h2>Lightning Facts!</h2>
-      <p>About 100 lightning bolts strike the Earth's surface every second.</p>
-      <p>As of this counter started, there are {lightningCount} lightning bolts that striked the Earth.</p>
-      <button onClick={lightningIncrement}>Count</button>
+    <div className="container">
+      <div className="wrapper">
+        <h2>Lightning Facts!</h2>
+        <p>About 100 lightning bolts strike the Earth's surface every second.</p>
+        <p>Number of lightning strikes on Earth as of this counter started:</p>
+        <h1>{lightningCount}</h1>
+      </div>
     </div>
   );
 }
